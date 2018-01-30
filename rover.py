@@ -11,4 +11,5 @@ def timecalculator():
     distance = 34000000
     time = distance/speed
     print("It will take", time, "seconds for the picture to reach NASA")
+
 timecalculator()
