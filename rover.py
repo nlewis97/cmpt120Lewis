@@ -4,10 +4,11 @@
 
 
 # Curiosityroverexercise.py
-# A program that calculates how long it will take a photo from Curiotsity to reach NASA from 34000000 miles away.
+# A program that calculates how long it take a photo from Curiotsity to reach NASA.
 
-def distancecalculator():
-    miles = 34000000
-    time = miles/186000
-    print("It will take", time, "seconds for the picture to reach NASA when it is 34000000")
-distancecalculator()
+def timecalculator():
+    speed = 186000
+    distance = 34000000
+    time = distance/speed
+    print("It will take", time, "seconds for the picture to reach NASA")
+timecalculator()
