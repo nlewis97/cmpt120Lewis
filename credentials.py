@@ -13,7 +13,7 @@ def uname():
         firstN=firstName();
         lastN=lastName();
         uname = firstN + "." + lastN
-        print("Your new usenrame is", uname)
+        print("Your new usenrame is", uname.lower())
         passwd = input("Create a new password: ")
         if len(passwd) >= 8:
             print("The force is strong in this one…")
