@@ -12,16 +12,16 @@ def uname():
     for i in range(5):
         firstN=firstName();
         lastN=lastName();
-        uname = firstN +"."+ lastN
-        print("Your new usenrame is", uname)
+        uname = firstN + "." + lastN
+        print("Your new usenrame is", uname.lower())
         passwd = input("Create a new password: ")
-        if len(passwd) >= 8:
+        if len(passwd) >= 8 and passwd.isupper:
             print("The force is strong in this one…")
             print("Account configured. Your new email address is", uname + "@marist.edu")
-        elif len(passwd) <8:
-            print("Fool of a Took! That password is feeble! Create one that is at least 8 characters.")
+        if len(passwd) <8 or passwd.islower:
+            print("Fool of a Took! That password is feeble! It is encouraged that you make a password at least 8 characters long and has at least one uppercase letter.")
             passwd = input("Create a new password: ")
-        if len(passwd) >=8:
+            if len(passwd) >=8:
                 print ("This password is worthy enough.")
                 print("Account configured. Your new email address is", uname + "@marist.edu")
    
