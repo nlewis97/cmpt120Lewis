@@ -8,6 +8,7 @@ def firstName():
 def lastName():
     last = input("Enter your last name: ")
     return(last)
+# JA: You are missing the function to check for the strenght of the password.
 def uname():
     for i in range(5):
         firstN=firstName();
