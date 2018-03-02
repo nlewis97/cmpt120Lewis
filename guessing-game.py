@@ -8,9 +8,16 @@ def guessinggame():
     while correct is "lion":
             if guess == correct:
                 print("Congratulations! You guessed correctly! The animal is lion")
+                input("Do you like this animal? Enter y for yes. Enter n for no.")
+                if "y":
+                    print("Thats great!")
+                if "n":
+                    print("Well I am sorry to hear that.")
                 break
-            elif guess == "quit":
+            elif guess[0] == "q":
                 guess = guess.lower()
+                
+                    
                 print("Thanks for playing.")
                 break
             else:
