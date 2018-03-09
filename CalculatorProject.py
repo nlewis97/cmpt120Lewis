@@ -112,13 +112,11 @@ class Calculator:
         elif key == 'sqrt':
             result = (eval(text))**0.5
             self.display.setText(str(result))
+            
         elif key == 'x**2':
             result = eval(text)**2
             self.display.setText(str(result))
         
-        elif key == 'exp':
-            result = math.e**(eval(text))
-            self.display.setText(str(result))
       
         elif key == 'sqrt':
             result = (eval(text))**0.5
