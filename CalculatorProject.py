@@ -1,10 +1,11 @@
 # Introduction to Programming
 # Author: Nicholas Lewis
-#Date: 2/23/18
+#Date: 3/9/18
 
 
 # Calculatorproject.py
 # A program that uses graphics and buttons to create a functional calculator.
+# Some improvements made to calculator.
 
 
 
@@ -88,6 +89,8 @@ class Calculator:
         else:
 
             self.display.setText(text+key)
+# Cannot seem to get memory  function to work :(. Not sure how to define M to get memory fucntion to work.
+            
         if key == 'MR':
             self.display.setText(self.memory)
             
