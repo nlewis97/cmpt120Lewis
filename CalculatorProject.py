@@ -23,12 +23,13 @@ class Calculator:
         self.win = win
         self.__createButtons()
         self.__createDisplay()
+        
       
     def __createButtons(self):
         bSpecs = [(2.5,1,'0'), (4,1,'.'), (1,2.5,'1'), (2.5,2.5,'2'), (4,2.5,'3'),
                    (5.5,2.5,'+'), (7,2.5,'-'), (1,4,'4'), (2.5,4,'5'), (4,4,'6'),
                    (5.5,4,'*'), (7,4,'/'), (1,5.5,'7'), (2.5,5.5,'8'), (4,5.5,'9'),
-                   (5.5,5.5,'<-'),(7,5.5,'C'),(1,1,'OFF'), (8.5,1,'1/x'), (8.5,2.5,'%'),
+                   (5.5,5.5,'<-'),(7,5.5,'C'), (8.5,1,'1/x'), (8.5,2.5,'%'),
                    (8.5,5.5,'sqrt'), (8.5,4,'x**2'), (2.5,10,'M+'), (4,10,'MS'),
                    (5.5,10,'MR'), (1,10,'MC')]
         self.buttons = []
@@ -87,7 +88,41 @@ class Calculator:
         else:
 
             self.display.setText(text+key)
-
+        if key == 'MR':
+            self.display.setText(self.memory)
+            
+        
+        elif key == 'MS':
+            self.memory = text or '0'
+            if self.memory != '0':
+                self.M.setText('M')
+        elif key == 'M+':
+            self.memory = str(eval(text+'+'+str(self.memory)))
+            if self.memory != '0':
+                self.M.setText('M')
+        elif key == 'MC':
+            self.memory = "0"
+            self.M.setText('')
+        elif key == '1/x':
+            try:
+                result = 1/(eval(text))
+            except:
+                result = 'ERROR'
+            self.display.setText(str(result))
+        elif key == 'sqrt':
+            result = (eval(text))**0.5
+            self.display.setText(str(result))
+        elif key == 'x**2':
+            result = eval(text)**2
+            self.display.setText(str(result))
+        
+        elif key == 'exp':
+            result = math.e**(eval(text))
+            self.display.setText(str(result))
+      
+        elif key == 'sqrt':
+            result = (eval(text))**0.5
+            self.display.setText(str(result))
  
 
     def run(self):
@@ -99,9 +134,9 @@ class Calculator:
             self.processButton(key)
 
  
-
 if __name__ == '__main__':
+    tCalc = Calculator()
+    tCalc.run()
+Calculator()
 
-    theCalc = Calculator()
-
-    theCalc.run()
+   
