@@ -19,8 +19,11 @@ def doLoop():
         cmd = cmd.lower()
 
         if cmd in ("sub", "add", "mult", "div"):
-            num1 = int(input("Enter the first number: "))
-            num2 = int(input("Enter the second number: "))
+            try:
+                num1 = int(input("Enter the first number: "))
+                num2 = int(input("Enter the second number: "))
+            except:
+                print("An error has occured. Please try again.")
 
         if cmd == "add":
             result = num1 + num2
@@ -34,10 +37,16 @@ def doLoop():
             result = num1 * num2
             print("The result is " + str(result) + ".\n")
 
+        
         elif cmd == "div":
-            result = num1 // num2
-            print("The result is " + str(result) + ".\n")
-
+            if num2 == 0:
+                print("Error: Cannot divide by zero. Please try again.")
+                
+            else:
+                result = num1 // num2
+                print("The result is " + str(result) + ".\n")
+                
+            
         elif cmd == "quit":
             break
         else:
