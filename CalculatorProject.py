@@ -149,6 +149,50 @@ class Calculator:
         elif key  == 'back':
             self.__createButtons()
             self.display.setText(text[-10:])
+
+        elif key == 'ln':
+
+            result = math.log(eval(text))
+            self.display.setText(str(result))
+
+        elif key == '10**x':
+
+            result = 10**(eval(text))
+            self.display.setText(str(result))
+            
+        elif key == 'cos':
+            result = math.cos(eval(text))
+            self.display.setText(str(result))
+
+        elif key == 'tan':
+            result = math.tan(eval(text))
+            self.display.setText(str(result))
+
+        elif key == 'sin':
+            result = math.sin(eval(text))
+            self.display.setText(str(result))
+
+        elif key == 'acos':
+            result = math.acos(eval(text))
+            self.display.setText(str(result))
+
+        elif key == 'asin':
+            result = math.asin(eval(text))
+            self.display.setText(str(result))
+
+        elif key == 'atan':
+            result = math.atan(eval(text))
+            self.display.setText(str(result))
+        
+        elif key == 'x**y':
+
+            y = eval(input('Please Enter a Value for y:'))
+            result = (eval(text))**y
+            self.display.setText(str(result))
+            
+        elif key == 'log':
+            result = math.log10(eval(text))
+            self.display.setText(str(result))
  
 
     def run(self):
