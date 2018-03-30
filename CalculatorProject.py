@@ -14,6 +14,8 @@ from graphics import *
 
 
 from button import Button
+import math
+
 
  
 
@@ -46,8 +48,9 @@ class Calculator:
                    (5.5,2.5,'ln'), (7,2.5,'log'), (1,4,'4'), (2.5,4,'5'), (4,4,'6'),
                    (5.5,4,''), (7,4,'/'), (1,5.5,'7'), (2.5,5.5,'8'), (4,5.5,'9'),
                    (5.5,5.5,'<-'),(7,5.5,'C'), (8.5,1,'x**y'), (8.5,2.5,'atan'),
-                   (8.5,5.5,'asin'), (8.5,4,'acos'), (2.5,10,'10**x'), (4,10,'sin'),
-                   (5.5,10,'cos'), (1,10,'tan')]
+                   (8.5,5.5,'asin'), (8.5,4,'acos'), (2.5,10,'10^x'), (4,10,'sin'),
+                   (5.5,10,'cos'), (1,10,'tan'),(1,1,'back'), (1,7.5,'('), (2.5,7.5,')'),
+                  (3.5,7.5,'+'), (4.5,7.5,'-'),(5.5,7.5,'*'),(6.5,7.5,'/')]
         self.buttons = []
 
         for (cx,cy,label) in bSpecs:
@@ -142,7 +145,11 @@ class Calculator:
 
         elif key == 'sci':
             self.__SCI()
-            
+            self.display.setText(text[-10:])
+
+        elif key  == 'back':
+            self.__createButtons()
+            self.display.setText(text[-10:])
  
 
     def run(self):
