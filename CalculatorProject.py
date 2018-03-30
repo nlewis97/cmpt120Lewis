@@ -27,6 +27,16 @@ class Calculator:
         self.win = win
         self.__createButtons()
         self.__createDisplay()
+        self.AnswerDisplay()
+        self.memorystorage()
+        self.memory = "0"
+#Memory functions now show up along the right side of display.
+    def memorystorage(self):
+        text = Text(Point(8,12.5),"")
+        text.draw(self.win)
+        text.setFace("courier")
+        text.setSize(10)
+        self.M = text
         
       
     def __createButtons(self):
@@ -42,7 +52,7 @@ class Calculator:
             self.buttons.append(Button(self.win,Point(cx,cy),1.5,1.25,label))
         self.buttons.append(Button(self.win,Point(6.25,1),3,1.25,"="))
         for b in self.buttons:  b.activate()
-
+#Operations for Sci mode
     def __SCI(self):
         bSpecs = [(2.5,1,'0'), (4,1,'.'), (1,2.5,'1'), (2.5,2.5,'2'), (4,2.5,'3'),
                    (5.5,2.5,'ln'), (7,2.5,'log'), (1,4,'4'), (2.5,4,'5'), (4,4,'6'),
@@ -69,7 +79,17 @@ class Calculator:
         text.setStyle("bold")
         text.setSize(10)
         self.display = text
-
+#This is another display where the answer will go.
+    def AnswerDisplay(self):
+        bg = Rectangle(Point(.5,11), Point(8.5,12))
+        bg.setFill('pink')
+        bg.draw(self.win)
+        text = Text(Point(4.5,11.5), "")
+        text.draw(self.win)
+        text.setFace("courier")
+        text.setStyle("bold")
+        text.setSize(10)
+        self.displayanswer = text
 
     def getButton(self):
         while True:
@@ -86,7 +106,7 @@ class Calculator:
         if key == 'C':
 
             self.display.setText("")
-
+            self.displayanswer.setText("")
         elif key == '<-':
 
             self.display.setText(text[:-1])
@@ -101,12 +121,12 @@ class Calculator:
 
                 result = 'ERROR'
 
-            self.display.setText(str(result))
+            self.displayanswer.setText(str(result))
 
         else:
 
             self.display.setText(text+key)
-# Cannot seem to get memory  function to work :(. Not sure how to define M to get memory fucntion to work.
+
             
         if key == 'MR':
             self.display.setText(self.memory)
@@ -119,7 +139,7 @@ class Calculator:
         elif key == 'M+':
             self.memory = str(eval(text+'+'+str(self.memory)))
             if self.memory != '0':
-                self.M.setText('M')
+                self.M.setText('M+')
         elif key == 'MC':
             self.memory = "0"
             self.M.setText('')
@@ -128,19 +148,19 @@ class Calculator:
                 result = 1/(eval(text))
             except:
                 result = 'ERROR'
-            self.display.setText(str(result))
+            self.displayanswer.setText(str(result))
         elif key == 'sqrt':
             result = (eval(text))**0.5
-            self.display.setText(str(result))
+            self.displayanswer.setText(str(result))
             
         elif key == 'x**2':
             result = eval(text)**2
-            self.display.setText(str(result))
+            self.displayanswer.setText(str(result))
         
       
         elif key == 'sqrt':
             result = (eval(text))**0.5
-            self.display.setText(str(result))
+            self.displayanswer.setText(str(result))
 
         elif key == 'sci':
             self.__SCI()
@@ -153,48 +173,51 @@ class Calculator:
         elif key == 'ln':
 
             result = math.log(eval(text))
-            self.display.setText(str(result))
+            self.displayanswer.setText(str(result))
 
         elif key == '10**x':
 
-            result = 10**(eval(text))
-            self.display.setText(str(result))
+            result = (eval(text))
+            self.displayanswer.setText(str(result))
             
         elif key == 'cos':
             result = math.cos(eval(text))
-            self.display.setText(str(result))
+            self.displayanswer.setText(str(result))
 
         elif key == 'tan':
             result = math.tan(eval(text))
-            self.display.setText(str(result))
+            self.displayanswer.setText(str(result))
 
         elif key == 'sin':
             result = math.sin(eval(text))
-            self.display.setText(str(result))
+            self.displayanswer.setText(str(result))
 
         elif key == 'acos':
             result = math.acos(eval(text))
-            self.display.setText(str(result))
+            self.displayanswer.setText(str(result))
 
         elif key == 'asin':
             result = math.asin(eval(text))
-            self.display.setText(str(result))
+            self.displayanswer.setText(str(result))
 
         elif key == 'atan':
             result = math.atan(eval(text))
-            self.display.setText(str(result))
+            self.displayanswer.setText(str(result))
         
         elif key == 'x**y':
 
             y = eval(input('Please Enter a Value for y:'))
             result = (eval(text))**y
-            self.display.setText(str(result))
+            self.displayanswer.setText(str(result))
             
         elif key == 'log':
             result = math.log10(eval(text))
-            self.display.setText(str(result))
+            self.displayanswer.setText(str(result))
  
-
+        elif key == '10^x':
+            result = 10**(eval(text))
+            self.displayanswer.setText(str(result))
+            
     def run(self):
 
         while True:
