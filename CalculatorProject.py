@@ -7,7 +7,7 @@
 # A program that uses graphics and buttons to create a functional calculator.
 # Some improvements made to calculator.
 
-
+# JA: When you switch the scientific mode, you should keep the other basic operations
 
 
 from graphics import *
