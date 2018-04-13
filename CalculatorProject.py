@@ -49,22 +49,26 @@ class Calculator:
         self.buttons = []
         
         for (cx,cy,label) in bSpecs:
-            self.buttons.append(Button(self.win,Point(cx,cy),2.25,2.33,label))
+            self.buttons.append(Button(self.win,Point(cx,cy),2.27,2.33,label))
         self.buttons.append(Button(self.win,Point(9.3,1.5),4.5,1.9,"="))
         for b in self.buttons:  b.activate()
 #Operations for Sci mode
     def __SCI(self):
-        bSpecs = [(2.5,1,'0'), (4,1,'.'), (1,2.5,'1'), (2.5,2.5,'2'), (4,2.5,'3'),
-                   (5.5,2.5,'ln'), (7,2.5,'log'), (1,4,'4'), (2.5,4,'5'), (4,4,'6'),
-                   (5.5,4,''), (7,4,'/'), (1,5.5,'7'), (2.5,5.5,'8'), (4,5.5,'9'),
-                   (5.5,5.5,'<-'),(7,5.5,'C'), (8.5,1,'x**y'), (8.5,2.5,'atan'),
-                   (8.5,5.5,'asin'), (8.5,4,'acos'), (2.5,10,'10^x'), (4,10,'sin'),
-                   (5.5,10,'cos'), (1,10,'tan'),(1,1,'back'), (1,7.5,'('), (2.5,7.5,')')]
+        bSpecs = bSpecs = [(3.75,1.5,'0'), (6,1.5,'.'), (1.5,3.75,'1'), (3.75,3.75,'2'), (6,3.75,'3'),
+                   (8.25,3.75,'+'), (10.5,3.75,'-'), (1.5,6,'4'), (3.75,6,'5'), (6,6,'6'),
+                   (8.25,6,'*'), (10.5,6,'/'), (1.5,8.25,'7'), (3.75,8.25,'8'), (6,8.25,'9'),
+                   (8.25,8.25,'<-'),(10.5,8.25,'C'), (12.75,1.5,'1/x'), (12.75,3.75,'%'),
+                   (12.75,8.25,'sqrt'), (12.75,6,'x**2'), (3.75,15,'M+'), (6,15,'MS'),
+                   (8.25,15,'MR'), (1.5,15,'MC'), (1.5,10.5,'ln'), (1.5, 12.75,'log'),
+                    (3.75,10.5,'x**y'), (15,8.5,'atan'), (15,6.5,'asin'), (15,4.00,'acos'), (6,10.5,'10^x'), (10.5,10.5,'sin'),
+                (8.25,10.5 ,'cos'), (12.75,10.5,'tan'), (15,10.5,'('), (15,12.5,')')]
+    
+  
         self.buttons = []
 
         for (cx,cy,label) in bSpecs:
-            self.buttons.append(Button(self.win,Point(cx,cy),1.5,1.5,label))
-        self.buttons.append(Button(self.win,Point(6.25,1),3,1.25,"="))
+            self.buttons.append(Button(self.win,Point(cx,cy),2.350,2.30,label))
+        self.buttons.append(Button(self.win,Point(9.3,1.5),4.5,1.9,"="))
         for b in self.buttons:  b.activate()
 
 
