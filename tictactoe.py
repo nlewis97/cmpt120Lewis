@@ -3,6 +3,7 @@
 # Author: Nicholas Lewis
 # Created: 2018-03-29
 def tictactoe():
+    # This works, but you had to use a list of lists
     board = [None] + list(range(1, 10))
     win = [(1, 2, 3),(4, 5, 6),(7, 8, 9),(1, 4, 7),(2, 5, 8),(3, 6, 9),(1, 5, 9),(3, 5, 7),]
 
